@@ -2,8 +2,16 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const fs = require("fs");
 const app = express();
 const connectDB = require("./config/db");
+
+[
+  path.join(__dirname, "uploads"),
+  path.join(__dirname, "uploads", "receipts"),
+].forEach((dir) => {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+});
 
 const authRoutes = require("./routes/authRoutes");
 const incomeRoutes = require("./routes/incomeRoutes");
@@ -20,7 +28,7 @@ app.use(
     origin: process.env.CLIENT_URL || "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
-  })
+  }),
 );
 
 app.get("/", (req, res) => {

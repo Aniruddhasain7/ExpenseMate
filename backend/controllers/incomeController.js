@@ -62,25 +62,54 @@ exports.deleteIncome = async (req, res) => {
 
 exports.downloadIncomeExcel = async (req, res) => {
   try {
-    const income = await Income.find({
+    const incomes = await Income.find({
       userId: req.user._id,
     }).sort({ date: -1 });
 
-    const data = income.map((item) => ({
-      Source: item.source,
-      Amount: item.amount,
-      Date: item.date,
+    const totalIncome = incomes.reduce(
+      (sum, item) => sum + Number(item.amount || 0),
+      0
+    );
+
+    const data = incomes.map((item, index) => ({
+      "#": index + 1,
+      Date: item.date
+        ? new Date(item.date).toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          })
+        : "N/A",
+      Source: item.source || "Other",
+      Amount: Number(item.amount || 0),
     }));
+
+    if (data.length > 0) {
+      data.push({
+        "#": "",
+        Date: "TOTAL",
+        Source: "",
+        Amount: totalIncome,
+      });
+    }
 
     const wb = xlsx.utils.book_new();
     const ws = xlsx.utils.json_to_sheet(data);
+
+    ws["!cols"] = [{ wch: 6 }, { wch: 16 }, { wch: 25 }, { wch: 16 }];
     xlsx.utils.book_append_sheet(wb, ws, "Income");
 
-    const filePath = "income_details.xlsx";
-    xlsx.writeFile(wb, filePath);
+    const buffer = xlsx.write(wb, { type: "buffer", bookType: "xlsx" });
+    const filename = `Income_Report_${new Date().toISOString().split("T")[0]}.xlsx`;
 
-    res.download(filePath);
+    res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    return res.send(buffer);
   } catch (error) {
+    console.error("Download Income Excel error:", error);
     res.status(500).json({ message: "Server Error" });
   }
 };

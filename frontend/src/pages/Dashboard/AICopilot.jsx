@@ -332,10 +332,10 @@ const AICopilot = () => {
   return (
     <DashboardLayout activeMenu="AI Copilot">
       <div className="space-y-6 pb-12 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-linear-to-r from-emerald-500/10 via-teal-500/5 to-green-500/10 border border-emerald-500/20 dark:border-emerald-500/20 shadow-sm backdrop-blur-md">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-linear-to-tr from-green-500 to-emerald-400 flex items-center justify-center text-white shadow-lg shadow-green-500/30">
-              <LuSparkles className="text-2xl" />
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#000000] border border-gray-200/70 dark:border-[#222222] shadow-xs">
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-xl bg-green-50 dark:bg-[#0c1f13] text-green-600 dark:text-green-400 border border-green-200/60 dark:border-[#1b3d26] flex items-center justify-center text-xl shrink-0">
+              <LuSparkles />
             </div>
             <div>
               <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">

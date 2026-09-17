@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Input from "../Inputs/Input";
 import EmojiPickerPopup from "../EmojiPickerPopup";
 import { useCurrency } from "../../context/CurrencyContext";
 
@@ -63,47 +62,82 @@ const AddGoalModal = ({ onSave }) => {
 
       <EmojiPickerPopup icon={icon} onSelect={(ic) => setIcon(ic)} />
 
-      <Input
-        label="Goal Title"
-        placeholder="e.g. MacBook Pro, Bali Trip, Emergency Fund"
-        value={title}
-        onChange={({ target }) => setTitle(target.value)}
-        type="text"
-      />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <Input
-          label={`Target Amount (${currency.symbol})`}
-          placeholder="100000"
-          value={targetAmount}
-          onChange={({ target }) => setTargetAmount(target.value)}
-          type="number"
-        />
-
-        <Input
-          label={`Already Saved (${currency.symbol})`}
-          placeholder="0"
-          value={currentAmount}
-          onChange={({ target }) => setCurrentAmount(target.value)}
-          type="number"
-        />
+      <div>
+        <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+          Goal Title
+        </label>
+        <div className="input-box">
+          <input
+            type="text"
+            placeholder="e.g. MacBook Pro, Bali Trip, Emergency Fund"
+            value={title}
+            onChange={({ target }) => setTitle(target.value)}
+            className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <Input
-          label="Category"
-          placeholder="e.g. Travel, Gadgets, Health"
-          value={category}
-          onChange={({ target }) => setCategory(target.value)}
-          type="text"
-        />
+        <div>
+          <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+            Target Amount ({currency.symbol})
+          </label>
+          <div className="input-box">
+            <input
+              type="number"
+              placeholder="100000"
+              value={targetAmount}
+              onChange={({ target }) => setTargetAmount(target.value)}
+              className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+            />
+          </div>
+        </div>
 
-        <Input
-          label="Target Date (Optional)"
-          value={deadline}
-          onChange={({ target }) => setDeadline(target.value)}
-          type="date"
-        />
+        <div>
+          <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+            Already Saved ({currency.symbol})
+          </label>
+          <div className="input-box">
+            <input
+              type="number"
+              placeholder="0"
+              value={currentAmount}
+              onChange={({ target }) => setCurrentAmount(target.value)}
+              className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+            Category
+          </label>
+          <div className="input-box">
+            <input
+              type="text"
+              placeholder="e.g. Travel, Gadgets, Health"
+              value={category}
+              onChange={({ target }) => setCategory(target.value)}
+              className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+            Target Date (Optional)
+          </label>
+          <div className="input-box">
+            <input
+              type="date"
+              value={deadline}
+              onChange={({ target }) => setDeadline(target.value)}
+              className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="flex justify-end pt-2">

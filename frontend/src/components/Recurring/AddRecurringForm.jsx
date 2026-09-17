@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Input from "../Inputs/Input";
 import EmojiPickerPopup from "../EmojiPickerPopup";
 
 const FREQUENCY_OPTIONS = ["daily", "weekly", "monthly", "yearly"];
@@ -64,7 +63,7 @@ const AddRecurringForm = ({ onAdd }) => {
             className={`flex-1 py-2 rounded-xl text-sm font-medium capitalize border transition-colors cursor-pointer ${
               form.type === t
                 ? t === "income"
-                  ? "bg-[#FF6900] text-white border-[#FF6900] shadow-sm"
+                  ? "bg-[#2563EB] text-white border-[#2563EB] shadow-sm"
                   : "bg-[#FA2C37] text-white border-[#FA2C37] shadow-sm"
                 : "bg-slate-50 dark:bg-[#161616] text-slate-600 dark:text-gray-300 border-slate-200 dark:border-[#282828] hover:bg-slate-100 dark:hover:bg-[#202020]"
             }`}
@@ -79,20 +78,35 @@ const AddRecurringForm = ({ onAdd }) => {
         onSelect={(selectedIcon) => handleChange("icon", selectedIcon)}
       />
 
-      <Input
-        value={form.title}
-        onChange={({ target }) => handleChange("title", target.value)}
-        label={form.type === "income" ? "Source / Title" : "Category / Title"}
-        placeholder="e.g. Netflix, Salary, EMI"
-        type="text"
-      />
-      <Input
-        value={form.amount}
-        onChange={({ target }) => handleChange("amount", target.value)}
-        label="Amount (₹)"
-        placeholder="1200"
-        type="number"
-      />
+      <div>
+        <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+          {form.type === "income" ? "Source / Title" : "Category / Title"}
+        </label>
+        <div className="input-box">
+          <input
+            type="text"
+            value={form.title}
+            onChange={({ target }) => handleChange("title", target.value)}
+            placeholder="e.g. Netflix, Salary, EMI"
+            className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+          Amount (₹)
+        </label>
+        <div className="input-box">
+          <input
+            type="number"
+            value={form.amount}
+            onChange={({ target }) => handleChange("amount", target.value)}
+            placeholder="1200"
+            className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+          />
+        </div>
+      </div>
 
       <div>
         <label className="text-xs text-slate-700 dark:text-gray-300 font-medium block mb-2">
@@ -116,13 +130,19 @@ const AddRecurringForm = ({ onAdd }) => {
         </div>
       </div>
 
-      <Input
-        value={form.startDate}
-        onChange={({ target }) => handleChange("startDate", target.value)}
-        label="Start Date"
-        placeholder=""
-        type="date"
-      />
+      <div>
+        <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+          Start Date
+        </label>
+        <div className="input-box">
+          <input
+            type="date"
+            value={form.startDate}
+            onChange={({ target }) => handleChange("startDate", target.value)}
+            className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+          />
+        </div>
+      </div>
 
       <div className="flex justify-end pt-2">
         <button

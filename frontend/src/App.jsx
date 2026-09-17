@@ -10,8 +10,7 @@ import {
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
 import Home from "./pages/Dashboard/Home";
-import Income from "./pages/Dashboard/Income";
-import Expense from "./pages/Dashboard/Expense";
+import Transactions from "./pages/Dashboard/Transactions";
 import Recurring from "./pages/Dashboard/Recurring";
 import Budgets from "./pages/Dashboard/Budgets";
 import Goals from "./pages/Dashboard/Goals";
@@ -72,8 +71,10 @@ const AppContent = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/dashboard" element={<Home />} />
-      <Route path="/income" element={<Income />} />
-      <Route path="/expense" element={<Expense />} />
+      <Route path="/transactions" element={<Transactions />} />
+      <Route path="/income-expense" element={<Transactions />} />
+      <Route path="/income" element={<Transactions defaultTab="income" />} />
+      <Route path="/expense" element={<Transactions defaultTab="expense" />} />
       <Route path="/budgets" element={<Budgets />} />
       <Route path="/goals" element={<Goals />} />
       <Route path="/copilot" element={<AICopilot />} />

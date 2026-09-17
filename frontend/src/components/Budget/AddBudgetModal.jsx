@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Input from "../Inputs/Input";
 import EmojiPickerPopup from "../EmojiPickerPopup";
 import { useCurrency } from "../../context/CurrencyContext";
 
@@ -64,21 +63,35 @@ const AddBudgetModal = ({ onSave }) => {
 
       <EmojiPickerPopup icon={icon} onSelect={(ic) => setIcon(ic)} />
 
-      <Input
-        label="Category Name"
-        placeholder="e.g. Food, Dining Out, Gym"
-        value={category}
-        onChange={({ target }) => setCategory(target.value)}
-        type="text"
-      />
+      <div>
+        <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+          Category Name
+        </label>
+        <div className="input-box">
+          <input
+            type="text"
+            placeholder="e.g. Food, Dining Out, Gym"
+            value={category}
+            onChange={({ target }) => setCategory(target.value)}
+            className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+          />
+        </div>
+      </div>
 
-      <Input
-        label={`Monthly Budget Limit (${currency.symbol})`}
-        placeholder="e.g. 10000"
-        value={monthlyLimit}
-        onChange={({ target }) => setMonthlyLimit(target.value)}
-        type="number"
-      />
+      <div>
+        <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+          Monthly Budget Limit ({currency.symbol})
+        </label>
+        <div className="input-box">
+          <input
+            type="number"
+            placeholder="e.g. 10000"
+            value={monthlyLimit}
+            onChange={({ target }) => setMonthlyLimit(target.value)}
+            className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+          />
+        </div>
+      </div>
 
       <div className="flex justify-end pt-2">
         <button

@@ -6,7 +6,7 @@ import { addThousandsSeparator } from "../../utils/helper";
 const FREQ_COLORS = {
   daily: "bg-orange-50 text-orange-600 border-orange-200 dark:bg-[#261608] dark:text-orange-400 dark:border-[#40240d]",
   weekly: "bg-green-50 text-green-600 border-green-200 dark:bg-[#0c1f13] dark:text-green-400 dark:border-[#1b3d26]",
-  monthly: "bg-blue-50 text-blue-600 border-blue-200 dark:bg-[#0a1829] dark:text-blue-400 dark:border-[#132c4a]",
+  monthly: "bg-teal-50 text-teal-600 border-teal-200 dark:bg-[#081f1d] dark:text-teal-400 dark:border-[#103834]",
   yearly: "bg-emerald-50 text-emerald-600 border-emerald-200 dark:bg-[#0c2419] dark:text-emerald-400 dark:border-[#17422e]",
 };
 
@@ -65,7 +65,7 @@ const RecurringList = ({ items, onDelete, onToggle }) => {
               <span
                 className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border capitalize ${
                   item.type === "income"
-                    ? "bg-orange-50 text-[#FF6900] border-orange-200 dark:bg-[#261608] dark:text-[#FF6900] dark:border-[#40240d]"
+                    ? "bg-blue-50 text-[#2563EB] border-blue-200 dark:bg-[#0c192c] dark:text-[#60A5FA] dark:border-[#1e3a66]"
                     : "bg-red-50 text-[#FA2C37] border-red-200 dark:bg-[#200c0f] dark:text-[#FA2C37] dark:border-[#3d1b20]"
                 }`}
               >
@@ -74,7 +74,7 @@ const RecurringList = ({ items, onDelete, onToggle }) => {
             </div>
 
             <p className="text-base font-bold mt-1 text-slate-900 dark:text-white">
-              <span className={item.type === "income" ? "text-[#FF6900]" : "text-[#FA2C37]"}>
+              <span className={item.type === "income" ? "text-[#2563EB]" : "text-[#FA2C37]"}>
                 {item.type === "income" ? "+" : "-"}₹{addThousandsSeparator(item.amount)}
               </span>
             </p>

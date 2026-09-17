@@ -5,11 +5,18 @@ yarn.lock
 
 # env
 .env
+.env.*
 
 # build
 dist/
 build/
 
-# OS
+# Uploads & temporary files
+uploads/
+*.xlsx
+
+# OS & IDE
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/

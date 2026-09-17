@@ -24,36 +24,134 @@ export const getInitials = (name) => {
   return fractionalPart
     ? `${formattedInteger}.${fractionalPart}`
     : formattedInteger;
- };
+};
 
-export const prepareExpenseBarChartData=(data =[])=>{
-  const chartData=data.map((item) => ({
-    category: item?.category,
-    amount: item?.amount,
-  }))
-  return chartData;
-}
+export const prepareCashFlowTimelineData = (incomes = [], expenses = []) => {
+  const map = {};
 
-export const prepareIncomeBarChartData= (data=[]) => {
-  const sortedData=[...data].sort((a, b) => new Date(a.date)- new Date(b.date));
+  incomes.forEach((item) => {
+    if (!item?.date) return;
+    const dateKey = moment(item.date).format("YYYY-MM-DD");
+    const displayDate = moment(item.date).format("Do MMM");
+    if (!map[dateKey]) {
+      map[dateKey] = {
+        rawDate: dateKey,
+        date: displayDate,
+        income: 0,
+        expense: 0,
+      };
+    }
+    map[dateKey].income += Number(item.amount || 0);
+  });
 
-  const chartData=sortedData.map((item) => ({
-    month: moment(item?.date).format('Do MMM'),
-    amount: item?.amount,
-    source: item?.source,
+  expenses.forEach((item) => {
+    if (!item?.date) return;
+    const dateKey = moment(item.date).format("YYYY-MM-DD");
+    const displayDate = moment(item.date).format("Do MMM");
+    if (!map[dateKey]) {
+      map[dateKey] = {
+        rawDate: dateKey,
+        date: displayDate,
+        income: 0,
+        expense: 0,
+      };
+    }
+    map[dateKey].expense += Number(item.amount || 0);
+  });
+
+  const sorted = Object.values(map).sort(
+    (a, b) => new Date(a.rawDate) - new Date(b.rawDate)
+  );
+
+  return sorted.map((item) => ({
+    ...item,
+    net: item.income - item.expense,
   }));
+};
 
-  return chartData;
-}
+export const CATEGORY_ICONS = {
+  entertainment: "🎬",
+  movie: "🎬",
+  movies: "🎬",
+  cinema: "🎬",
+  food: "🍔",
+  dining: "🍽️",
+  restaurant: "🍽️",
+  cafe: "☕",
+  coffee: "☕",
+  rent: "🏠",
+  housing: "🏠",
+  home: "🏠",
+  transport: "🚗",
+  transportation: "🚗",
+  travel: "✈️",
+  vehicle: "🚗",
+  fuel: "⛽",
+  gas: "⛽",
+  cab: "🚕",
+  uber: "🚕",
+  groceries: "🛒",
+  grocery: "🛒",
+  supermarket: "🛒",
+  shopping: "🛍️",
+  clothes: "👗",
+  clothing: "👗",
+  health: "💊",
+  healthcare: "💊",
+  medical: "🩺",
+  doctor: "🩺",
+  medicine: "💊",
+  utilities: "⚡",
+  electricity: "⚡",
+  water: "💧",
+  wifi: "📶",
+  internet: "🌐",
+  bills: "🧾",
+  bill: "🧾",
+  education: "📚",
+  books: "📖",
+  course: "🎓",
+  tuition: "🎓",
+  gym: "🏋️",
+  fitness: "🏋️",
+  workout: "🏋️",
+  personal: "✨",
+  insurance: "🛡️",
+  gift: "🎁",
+  gifts: "🎁",
 
-export const prepareExpenseLineChartData= (data=[]) => {
-  const sortedData=[...data].sort((a, b) => new Date(a.date)- new Date(b.date));
+  salary: "💰",
+  wages: "💰",
+  freelance: "💻",
+  consulting: "💼",
+  investment: "📈",
+  investments: "📈",
+  stocks: "📈",
+  dividend: "📈",
+  dividends: "📈",
+  crypto: "🪙",
+  bonus: "🎉",
+  business: "🏢",
+  interest: "🏦",
+  sidehustle: "🚀",
+};
 
-  const chartData=sortedData.map((item) => ({
-    month: moment(item?.date).format('Do MMM'),
-    amount: item?.amount,
-    category: item?.category,
-  }));
+export const getDefaultCategoryIcon = (categoryOrSource = "", type = "expense") => {
+  if (!categoryOrSource || typeof categoryOrSource !== "string") {
+    return type === "income" ? "💰" : "💳";
+  }
 
-  return chartData;
-}
+  const raw = categoryOrSource.trim().toLowerCase();
+  
+  if (CATEGORY_ICONS[raw]) {
+    return CATEGORY_ICONS[raw];
+  }
+
+  for (const [key, icon] of Object.entries(CATEGORY_ICONS)) {
+    if (raw.includes(key) || key.includes(raw)) {
+      return icon;
+    }
+  }
+
+  return type === "income" ? "💰" : "💳";
+};

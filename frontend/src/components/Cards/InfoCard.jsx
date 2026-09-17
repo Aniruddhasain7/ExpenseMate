@@ -1,14 +1,19 @@
 import React from "react";
 import { useCurrency } from "../../context/CurrencyContext";
 
-const InfoCard = ({ icon, label, value, color }) => {
+const InfoCard = ({ icon, label, value, color, isCurrency = true }) => {
   const { formatAmount } = useCurrency();
-  const rawNum =
-    typeof value === "number"
-      ? value
-      : Number(String(value).replace(/[^0-9.-]+/g, ""));
-  const displayVal =
-    !isNaN(rawNum) && rawNum !== null ? formatAmount(rawNum) : `₹${value}`;
+  let displayVal;
+  if (!isCurrency) {
+    displayVal = value;
+  } else {
+    const rawNum =
+      typeof value === "number"
+        ? value
+        : Number(String(value).replace(/[^0-9.-]+/g, ""));
+    displayVal =
+      !isNaN(rawNum) && rawNum !== null ? formatAmount(rawNum) : `₹${value}`;
+  }
 
   return (
     <div className="flex items-center gap-5 bg-white dark:bg-[#000000] p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-200/70 dark:border-[#222222] transition-all hover:shadow-md">

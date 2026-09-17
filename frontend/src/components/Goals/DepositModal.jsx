@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Input from "../Inputs/Input";
 import { useCurrency } from "../../context/CurrencyContext";
 
 const QUICK_AMOUNTS = [500, 1000, 2000, 5000, 10000];
@@ -48,13 +47,20 @@ const DepositModal = ({ goal, onDeposit }) => {
         </div>
       </div>
 
-      <Input
-        label={`Deposit Amount (${currency.symbol})`}
-        placeholder="Enter amount to add"
-        value={amount}
-        onChange={({ target }) => setAmount(target.value)}
-        type="number"
-      />
+      <div>
+        <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-gray-300 block mb-1">
+          Deposit Amount ({currency.symbol})
+        </label>
+        <div className="input-box">
+          <input
+            type="number"
+            placeholder="Enter amount to add"
+            value={amount}
+            onChange={({ target }) => setAmount(target.value)}
+            className="w-full bg-transparent outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm"
+          />
+        </div>
+      </div>
 
       <div className="flex justify-end pt-2">
         <button

@@ -2,7 +2,7 @@
 
 <b>Smart, Full-Stack Financial Tracking & Intelligent AI Advisory Platform</b>
 <br />
-Track income and expenses, establish category budgets, hit savings milestones, scan receipts via OCR, and consult an intelligent Groq-powered AI Copilot — all in one modern interface.
+Track income and expenses, establish category budgets, hit savings milestones, scan receipts via OCR, and consult an intelligent Groq-powered AI Copilot — all in one unified modern interface.
 
 ---
 
@@ -18,19 +18,26 @@ Track income and expenses, establish category budgets, hit savings milestones, s
 
 - [Overview](#-overview)
 - [Key Features](#-key-features)
+- [Architecture & Tech Stack](#️-architecture--tech-stack)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [1. Clone the Repository](#1-clone-the-repository)
+  - [2. Configure and Run Backend](#2-configure-and-run-backend)
+  - [3. Configure and Run Frontend](#3-configure-and-run-frontend)
+  - [4. Build for Production](#4-build-for-production)
 
 ---
 
 ## 🌟 Overview
 
-**ExpenseMate** is a production-ready, full-stack personal finance application built on the modern MERN stack. Designed with precision typography, responsive AMOLED dark mode, and sleek micro-interactions, ExpenseMate empowers users to gain complete clarity over their money:
+**ExpenseMate** is a production-grade, full-stack personal finance and wealth management platform built on the modern MERN stack. Designed with precision typography, responsive AMOLED dark mode, and sleek micro-interactions, ExpenseMate empowers users with complete visibility and control over their finances:
 
-- **AI-Powered Audits**: Real-time 0–100 Financial Health Score and customized recommendations powered by Groq LLMs.
-- **Goal & Budget Discipline**: Category-level spending limits with progress indicators and savings goal milestone tracking.
-- **Frictionless Entry**: OCR receipt scanning via Tesseract.js, multi-currency conversion, and recurring transaction automation.
-- **Actionable Insights**: Recharts visualizations, instant multi-filter search, and Excel export for spreadsheet workflows.
+- **🤖 AI-Powered Copilot**: Real-time 0–100 Financial Health Score, automated deep audits, and personalized advisory powered by Groq LLMs.
+- **💳 Unified Transactions Hub**: Centralized management of income and expenses with multi-criteria search, tab filters, and instant Excel export.
+- **📈 Cash Flow Analytics & Insights**: Interactive dual-line cash flow visualizations, spending trends, and real-time smart financial insights.
+- **🎯 Budgets & Savings Goals**: Category-level spending limits with dynamic thresholds and milestone savings trackers.
+- **⚡ Automation & Convenience**: In-browser OCR receipt scanning via Tesseract.js, automated recurring transactions, and 8-currency multi-conversion.
 
 ---
 
@@ -38,68 +45,65 @@ Track income and expenses, establish category budgets, hit savings milestones, s
 
 ### 🤖 1. AI Financial Copilot (Powered by Groq)
 
-- **Dynamic Health Score (0–100)**: Evaluates cash balance, savings rate, budget adherence, and goal progress in real time.
-- **One-Click Comprehensive Audit**: Delivers instant strengths, vulnerabilities, and high-impact action steps tailored to your actual numbers.
-- **Context-Aware Advisory Chat**: Ask financial questions ("How can I cut expenses by 15%?", "Can I afford a $500 trip next month?") with the AI referencing your actual ledger.
-- **Custom API Key Support**: Use the built-in system key or seamlessly bring your own Groq API key directly in the UI.
-- **Rich Markdown Formatting**: Clean responses with styled tables, bullet points, and highlight badges via `react-markdown` and `remark-gfm`.
+- **Dynamic Health Score (0–100)**: Real-time algorithm assessing cash balance, savings rate, budget adherence, and goal completion.
+- **One-Click Financial Audit**: Delivers customized breakdowns of financial strengths, vulnerabilities, and high-impact action steps tailored to your actual numbers.
+- **Context-Aware Advisory Chat**: Ask complex financial questions (*"How can I cut expenses by 15%?"*, *"Can I afford a $600 vacation next month?"*) while the AI references your active ledger.
+- **Custom API Key Support**: Use the built-in system key or securely bring your own Groq API key directly in the UI.
+- **Rich Markdown Output**: Rendered tables, structured checklists, bullet points, and highlighted recommendation tags using `react-markdown` and `remark-gfm`.
 
-### 🎯 2. Category Budgeting & Overspending Alerts
+### 💳 2. Unified Transactions Hub & Excel Export
 
-- Set monthly budget ceilings per category (e.g., Food & Dining, Rent, Utilities, Shopping).
-- Dynamic, color-coded progress bars (Normal, Approaching Limit, Over Budget).
-- Automated tracking against current month's actual expenses.
+- **All-in-One Ledger**: Unified management view for both Income and Expenses with intuitive tabs (**All**, **Income**, **Expense**).
+- **Fast Filter & Search**: Instant client-side search across transaction titles, sources, and categories with custom date-range filtering.
+- **One-Click Excel (.xlsx) Export**: Download comprehensive spreadsheet ledgers ready for tax preparation and offline accounting.
+- **Custom Categorization**: Tag entries with titles, custom amounts, dates, and expressive emoji icons via an integrated picker.
 
-### 🏆 3. Savings Goals & Milestone Tracker
+### 📊 3. Interactive Cash Flow Analytics & Smart Insights
 
-- Define savings goals with target amounts and target completion dates.
-- Dedicated deposit modal with instant progress and remaining balance recalculation.
-- Visual milestone celebration badges upon 100% completion.
+- **Dual-Line Cash Flow Chart**: Visualizes monthly income vs. expense curves with custom gradients, tooltips, and net cash flow trends via Recharts.
+- **Smart Financial Insights**: Real-time analytical cards displaying burn rate, top expense categories, savings rate percentages, and net balance trajectory.
+- **Recent Transactions Pulse**: Quick-access stream of recent activities with instant category icons, amount indicators, and deletion controls.
 
-### 💱 4. Multi-Currency Engine
+### 🎯 4. Category Budgeting & Overspending Alerts
 
-- Switch seamlessly between 8 global currencies:
+- Set monthly budget ceilings per spending category (Food & Dining, Rent, Utilities, Shopping, Entertainment, etc.).
+- Color-coded progress meters with automated threshold triggers: **Normal**, **Approaching Limit**, and **Over Budget**.
+- Real-time expense deduction calculated dynamically against the active calendar month.
+
+### 🏆 5. Savings Goals & Milestone Tracker
+
+- Set targeted savings milestones with custom target amounts and target dates.
+- Dedicated deposit modal with instant recalculation of total accumulated funds and remaining balances.
+- Visual milestone celebration badges and percentage progress meters upon 100% completion.
+
+### 💱 6. Multi-Currency Conversion Engine
+
+- Seamlessly switch between 8 global currencies at any moment:
   - **INR (₹)**, **USD ($)**, **EUR (€)**, **GBP (£)**, **AED (د.إ)**, **CAD ($)**, **AUD ($)**, **JPY (¥)**
-- Real-time exchange rate normalization across all cards, charts, and tables.
+- Real-time exchange rate normalization across all cards, charts, transaction items, and summary metrics.
 
-### 🔄 5. Recurring Transactions Automation
+### 🔄 7. Recurring Transactions Automation
 
-- Automate repeating income and expenses across flexible frequencies:
+- Automate repeating income streams and bills across flexible intervals:
   - **Daily**, **Weekly**, **Monthly**, **Yearly**
-- Tracks last processed dates and automatically calculates the next due date.
-- One-click "Process Due" sync to convert scheduled entries into active ledger records.
+- Tracks execution history and automatically projects next scheduled payment dates.
+- One-click **"Process Due"** synchronization to convert due scheduled items into active ledger records.
 
-### 📷 6. Smart Receipt Scanner (OCR)
+### 📷 8. Smart Receipt Scanner (OCR)
 
 - Upload receipt images (`.png`, `.jpg`, `.jpeg`) directly from your device.
-- In-browser OCR parsing with Tesseract.js extracts total amount, date, and category automatically into the expense creation modal.
+- In-browser OCR parsing with Tesseract.js automatically extracts total amount, transaction date, and predicted category into the expense entry modal.
 
-### 📊 7. Visual Analytics & Recharts
+### 🌓 9. AMOLED Dark & Clean Light Modes
 
-- Interactive monthly income vs. expense breakdown charts.
-- Category spending distribution with clean tooltips and formatted monetary units.
-- Summary metrics: **Total Income**, **Total Expenses**, **Net Balance**, and **Savings Rate %**.
+- Pitch-black AMOLED dark mode optimized for OLED screens and late-night budgeting sessions.
+- Clean, high-contrast light theme with smooth transitions, persisted across sessions via `localStorage`.
 
-### 📥 8. Excel Data Export
+### 🔐 10. Security & Session Management
 
-- Download comprehensive `.xlsx` spreadsheets for both income and expense ledgers with one click.
-- Cleanly formatted columns ready for tax preparation and offline analysis.
-
-### 🔍 9. Advanced Search & Filtering
-
-- Instant client-side search across transaction titles and sources.
-- Filter by category and date ranges.
-
-### 🌓 10. AMOLED Dark & Clean Light Modes
-
-- Pitch-black AMOLED dark mode tailored for OLED displays and late-night budgeting.
-- Smooth transition toggle persisted to `localStorage`.
-
-### 🔐 11. Security & Profile Management
-
-- JWT (JSON Web Token) authentication with bcrypt password hashing.
-- User profile management with custom avatar upload via Multer.
-- Cold-start resilience with informative loading feedback during server wakeups.
+- Secure stateless authentication using JSON Web Tokens (JWT) and salted bcrypt password hashing.
+- Route protection with centralized navigation handling and automated token expiry redirects.
+- Informative loading states and backend cold-start resiliency.
 
 ---
 
@@ -109,30 +113,30 @@ Track income and expenses, establish category budgets, hit savings milestones, s
 
 | Technology               | Version | Purpose                                               |
 | :----------------------- | :------ | :---------------------------------------------------- |
-| **React**                | `v19.2` | Core UI library & reactive state management           |
-| **Vite**                 | `v7.2`  | Ultra-fast HMR build tool and dev server              |
-| **Tailwind CSS**         | `v4.1`  | Next-generation utility-first styling engine          |
-| **React Router DOM**     | `v7.11` | Client-side routing and protected routes              |
-| **Recharts**             | `v3.6`  | Interactive charts and financial visualization        |
-| **Tesseract.js**         | `v7.0`  | In-browser OCR receipt parsing                        |
-| **Axios**                | `v1.13` | HTTP client with JWT interceptors                     |
-| **React Hot Toast**      | `v2.6`  | Accessible toast notifications                        |
-| **React Icons**          | `v5.5`  | Icon library                                          |
+| **React**                | `v19.2` | Core UI library & declarative component structure     |
+| **Vite**                 | `v7.2`  | Lightning-fast HMR build tool and dev server          |
+| **Tailwind CSS**         | `v4.1`  | Utility-first styling engine with AMOLED dark mode    |
+| **React Router DOM**     | `v7.11` | Client-side routing and authenticated route guards    |
+| **Recharts**             | `v3.6`  | Interactive dual-line cash flow charts & visualizers  |
+| **Tesseract.js**         | `v7.0`  | In-browser client-side OCR receipt parsing            |
+| **Axios**                | `v1.13` | HTTP client configured with JWT interceptors          |
+| **React Hot Toast**      | `v2.6`  | Toast notifications                                   |
+| **React Icons**          | `v5.5`  | Iconography system                                    |
 | **React Markdown + GFM** | `v10.1` | Markdown parser for AI Copilot responses              |
-| **Moment.js**            | `v2.30` | Date manipulation and display formatting              |
-| **Emoji Picker React**   | `v4.16` | Custom emoji selector for income & expense categories |
+| **Moment.js**            | `v2.30` | Date manipulation and formatting                      |
+| **Emoji Picker React**   | `v4.16` | Emoji selector for categories                         |
 
 ### ⚙️ Backend
 
 | Technology               | Version | Purpose                                                   |
 | :----------------------- | :------ | :-------------------------------------------------------- |
 | **Node.js**              | `>= 18` | JavaScript runtime environment                            |
-| **Express**              | `v5.2`  | Modern RESTful API framework                              |
-| **MongoDB & Mongoose**   | `v9.1`  | NoSQL document database & ODM schema modeling             |
+| **Express**              | `v5.2`  | RESTful API framework and middleware handler              |
+| **MongoDB & Mongoose**   | `v9.1`  | Document database and schema modeling                     |
 | **Groq Cloud API**       | REST    | High-speed LLM inference for AI Copilot                   |
-| **JSON Web Token (JWT)** | `v9.0`  | Stateless authorization & user session management         |
+| **JSON Web Token (JWT)** | `v9.0`  | Stateless authorization & token-based session management  |
 | **bcryptjs**             | `v3.0`  | Cryptographic password hashing                            |
-| **Multer**               | `v2.0`  | Multipart file/avatar uploads                             |
+| **Multer**               | `v2.0`  | Multipart/form-data upload handling                       |
 | **xlsx**                 | `v0.18` | Excel spreadsheet parsing & generation                    |
 | **CORS & Dotenv**        | —       | Cross-origin resource sharing & environment configuration |
 
@@ -146,25 +150,25 @@ ExpenseMate/
 │   ├── config/
 │   │   └── db.js                  # MongoDB Mongoose connection
 │   ├── controllers/
-│   │   ├── authController.js      # Register, login, get user, avatar upload
-│   │   ├── budgetController.js    # Budget set, get, and delete operations
-│   │   ├── copilotController.js   # Groq AI audit & context-aware chat
-│   │   ├── dashboardController.js # Aggregated analytics & recent activity
-│   │   ├── expenseController.js   # Expense CRUD & Excel export
-│   │   ├── goalController.js      # Savings goal CRUD & deposits
-│   │   ├── incomeController.js    # Income CRUD & Excel export
-│   │   ├── receiptController.js   # Receipt upload handler
-│   │   └── recurringController.js # Recurring transactions & due processor
+│   │   ├── authController.js      # User register, login & get info
+│   │   ├── budgetController.js    # Budget CRUD & category limit tracking
+│   │   ├── copilotController.js   # Groq AI audit & contextual financial chat
+│   │   ├── dashboardController.js # Cash flow overview, stats & smart insights
+│   │   ├── expenseController.js   # Expense CRUD & Excel spreadsheet export
+│   │   ├── goalController.js      # Savings goals & deposit progress
+│   │   ├── incomeController.js    # Income CRUD & Excel spreadsheet export
+│   │   ├── receiptController.js   # Receipt upload processing
+│   │   └── recurringController.js # Recurring schedules & batch processor
 │   ├── middleware/
 │   │   ├── authMiddleware.js      # JWT verification & route protection
 │   │   └── uploadMiddleware.js    # Multer file storage configuration
 │   ├── models/
-│   │   ├── User.js                # User schema (name, email, password, avatar)
-│   │   ├── Income.js              # Income record schema
-│   │   ├── Expense.js             # Expense record schema
 │   │   ├── Budget.js              # Category monthly budget schema
+│   │   ├── Expense.js             # Expense record schema
 │   │   ├── Goal.js                # Savings goal schema
-│   │   └── RecurringTransaction.js# Recurring schedule schema
+│   │   ├── Income.js              # Income record schema
+│   │   ├── RecurringTransaction.js# Recurring schedule schema
+│   │   └── User.js                # User profile & credential schema
 │   ├── routes/
 │   │   ├── authRoutes.js          # /api/v1/auth
 │   │   ├── budgetRoutes.js        # /api/v1/budget
@@ -175,47 +179,49 @@ ExpenseMate/
 │   │   ├── incomeRoutes.js        # /api/v1/income
 │   │   ├── receiptRoutes.js       # /api/v1/receipt
 │   │   └── recurringRoutes.js     # /api/v1/recurring
-│   ├── uploads/                   # Local directory for uploaded user avatars
-│   ├── server.js                  # Express application entry point
+│   ├── uploads/                   # Uploaded receipt files and media
+│   ├── server.js                  # Express server entry point & route mapping
 │   └── package.json
 │
 └── frontend/
     ├── public/                    # Static assets & icons
     ├── src/
     │   ├── components/
-    │   │   ├── Budget/            # Category budget cards, modals & progress bars
-    │   │   ├── Cards/             # InfoCards, transaction items & metrics
-    │   │   ├── Charts/            # Custom BarChart & Recharts wrappers
-    │   │   ├── Dashboard/         # Finance overview & recent transaction lists
-    │   │   ├── Expense/           # Add/Edit expense modal & expense lists
-    │   │   ├── Goals/             # Goal cards, deposit dialogs & progress meters
-    │   │   ├── Income/            # Add/Edit income modal & income lists
-    │   │   ├── Inputs/            # Input fields, search bars & date pickers
-    │   │   ├── layouts/           # Navbar, SideMenu, and AuthLayout wrappers
+    │   │   ├── Budget/            # Budget cards, progress bars & AddBudgetModal
+    │   │   ├── Cards/             # InfoCard & TransactionInfoCard metrics
+    │   │   ├── Charts/            # CashFlowChart (dual-line cash flow visualization)
+    │   │   ├── Dashboard/         # CashFlowOverview, RecentTransactions, BudgetGoals, SmartInsights
+    │   │   ├── Goals/             # Goal cards, AddGoalModal & DepositModal
+    │   │   ├── layouts/           # Navbar, SideMenu & AuthLayout wrappers
     │   │   ├── Receipt/           # Tesseract.js OCR scanner modal
-    │   │   └── Recurring/         # Recurring schedule lists & frequency forms
+    │   │   ├── Recurring/         # Recurring transaction list & AddRecurringForm
+    │   │   ├── Transactions/      # AddExpenseForm & AddIncomeForm modals
+    │   │   ├── DeleteAlert.jsx    # Reusable confirmation modal
+    │   │   ├── EmojiPickerPopup.jsx# Category emoji selector
+    │   │   └── Modal.jsx          # Reusable modal wrapper
     │   ├── context/
-    │   │   ├── AuthContext.jsx    # User session, login, and logout state
-    │   │   ├── CurrencyContext.jsx# Selected currency, symbols & exchange rates
-    │   │   └── ThemeContext.jsx   # AMOLED dark & light mode switcher
+    │   │   ├── CurrencyContext.jsx# Currency state, symbols & live conversion
+    │   │   ├── ThemeContext.jsx   # AMOLED dark & light mode switcher
+    │   │   └── UserContext.jsx    # User authentication & session state
     │   ├── pages/
     │   │   ├── Auth/
-    │   │   │   ├── Login.jsx      # Login page
-    │   │   │   └── SignUp.jsx     # Registration page
+    │   │   │   ├── Login.jsx      # Authentication login view
+    │   │   │   └── SignUp.jsx     # User registration view
     │   │   └── Dashboard/
-    │   │       ├── Home.jsx       # Analytics dashboard
-    │   │       ├── Income.jsx     # Income management & Excel export
-    │   │       ├── Expense.jsx    # Expense management & Excel export
-    │   │       ├── Budgets.jsx    # Category budgeting
-    │   │       ├── Goals.jsx      # Savings goals & milestones
+    │   │       ├── Home.jsx       # Analytics dashboard & financial pulse
+    │   │       ├── Transactions.jsx # Unified Income & Expense ledger management
+    │   │       ├── Budgets.jsx    # Category budgeting & threshold tracking
+    │   │       ├── Goals.jsx      # Savings goals & milestone progress
     │   │       ├── AICopilot.jsx  # Groq AI financial advisor & audit
-    │   │       └── Recurring.jsx  # Recurring transaction scheduler
+    │   │       └── Recurring.jsx  # Scheduled transaction manager
     │   ├── utils/
-    │   │   ├── apiPaths.js        # Centralized endpoint definitions
-    │   │   ├── axiosInstance.js   # Configured Axios client with auth tokens
-    │   │   └── helper.js          # Currency, date, and validation helpers
-    │   ├── App.jsx                # Application routes & provider wrappers
-    │   └── main.jsx               # React DOM root
+    │   │   ├── apiPaths.js        # Centralized REST API endpoints
+    │   │   ├── axiosInstance.js   # Axios instance with interceptors & redirect handling
+    │   │   ├── data.js            # Navigation links & static options
+    │   │   └── helper.js          # Currency formatting, date helpers & validators
+    │   ├── App.jsx                # Application router & theme providers
+    │   ├── main.jsx               # React DOM entry point
+    │   └── index.css              # Tailwind CSS styles & AMOLED theme tokens
     ├── index.html
     ├── vite.config.js
     └── package.json
@@ -248,14 +254,15 @@ cd ExpenseMate
 ### 2. Configure and Run Backend
 
 ```bash
-# Navigate to backend folder
+# Navigate to backend directory
 cd backend
 
 # Install dependencies
 npm install
 
 # Create and configure .env file
-# Then start development server
+
+# Start development server
 npm run server
 ```
 
@@ -268,11 +275,14 @@ The backend server will start on `http://localhost:8000`.
 In a new terminal window:
 
 ```bash
-# Navigate to frontend folder
+# Navigate to frontend directory
 cd frontend
 
 # Install dependencies
 npm install
+
+# Create your .env file (if pointing to custom backend URL)
+# VITE_BACKEND_URL=http://localhost:8000
 
 # Start the Vite development server
 npm run dev
@@ -285,7 +295,13 @@ Open your browser and navigate to the local Vite URL (typically `http://localhos
 ### 4. Build for Production
 
 ```bash
-# Frontend build
+# Build frontend
 cd frontend
 npm run build
 ```
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

@@ -3,9 +3,26 @@ import EmojiPicker, { Theme as EmojiTheme } from "emoji-picker-react";
 import { LuImage, LuX } from "react-icons/lu";
 import { useTheme } from "../context/ThemeContext";
 
-const EmojiPickerPopup = ({ icon, onSelect }) => {
+const EmojiPickerPopup = ({ icon, onSelect, type = "income" }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isDark } = useTheme();
+
+  const isIncome = type === "income";
+  const boxStyles = isIncome
+    ? "bg-blue-50 dark:bg-[#0c192c] text-[#2563EB] border-blue-200/60 dark:border-[#1e3a66] group-hover:border-[#2563EB]"
+    : "bg-red-50 dark:bg-[#250c0f] text-[#FA2C37] border-red-200/60 dark:border-[#4d161b] group-hover:border-[#FA2C37]";
+
+  const isUrl =
+    typeof icon === "string" &&
+    (icon.startsWith("http") ||
+      icon.includes("cdn.jsdelivr.net") ||
+      icon.endsWith(".png"));
+
+  const imageSrc = isUrl
+    ? icon.startsWith("http")
+      ? icon
+      : `https://${icon.replace(/^\/\//, "")}`
+    : null;
 
   return (
     <div className="flex flex-col md:flex-row items-start gap-4 mb-4">
@@ -13,10 +30,12 @@ const EmojiPickerPopup = ({ icon, onSelect }) => {
         className="flex items-center gap-3 cursor-pointer group"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <div className="w-12 h-12 flex items-center justify-center text-2xl bg-green-50 dark:bg-[#0c1f13] text-green-600 dark:text-green-400 rounded-xl border border-green-200/60 dark:border-[#1b3d26] group-hover:border-green-400 transition-colors shrink-0 overflow-hidden">
+        <div
+          className={`w-12 h-12 flex items-center justify-center text-2xl rounded-xl border transition-colors shrink-0 overflow-hidden ${boxStyles}`}
+        >
           {icon ? (
-            icon.startsWith("http") ? (
-              <img src={icon} alt="Icon" className="w-8 h-8 object-contain" />
+            isUrl ? (
+              <img src={imageSrc} alt="Icon" className="w-8 h-8 object-contain" />
             ) : (
               <span className="text-2xl">{icon}</span>
             )

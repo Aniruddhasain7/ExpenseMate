@@ -10,6 +10,7 @@ export const API_PATHS = {
 
   DASHBOARD: {
     GET_DATA: `${BASE_URL}/api/v1/dashboard`,
+    DOWNLOAD_ALL: `${BASE_URL}/api/v1/dashboard/downloadexcel`,
   },
 
   INCOME: {
@@ -24,10 +25,6 @@ export const API_PATHS = {
     GET_ALL_EXPENSE: `${BASE_URL}/api/v1/expense/get`,
     DELETE_EXPENSE: (id) => `${BASE_URL}/api/v1/expense/${id}`,
     DOWNLOAD_EXPENSE: `${BASE_URL}/api/v1/expense/downloadexcel`,
-  },
-
-  IMAGE: {
-    UPLOAD_IMAGE: `${BASE_URL}/api/v1/auth/upload-image`,
   },
 
   RECURRING: {

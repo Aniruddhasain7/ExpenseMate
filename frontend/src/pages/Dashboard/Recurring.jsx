@@ -156,9 +156,9 @@ const Recurring = () => {
           </div>
           <div className="card">
             <p className="text-xs text-slate-500 dark:text-gray-400 font-semibold uppercase tracking-wider flex items-center gap-1">
-              <LuTrendingUp className="text-[#FF6900]" /> Monthly Income
+              <LuTrendingUp className="text-[#2563EB]" /> Monthly Income
             </p>
-            <p className="text-2xl sm:text-3xl font-bold text-[#FF6900] mt-2">
+            <p className="text-2xl sm:text-3xl font-bold text-[#2563EB] mt-2">
               ₹{addThousandsSeparator(monthlyIncome)}
             </p>
           </div>

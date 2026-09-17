@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  LuUtensils,
   LuTrendingUp,
   LuTrendingDown,
   LuTrash2,
 } from "react-icons/lu";
 import { useCurrency } from "../../context/CurrencyContext";
+import { getDefaultCategoryIcon } from "../../utils/helper";
 
 const TransactionInfoCard = ({
   title,
@@ -17,6 +17,7 @@ const TransactionInfoCard = ({
   onDelete,
 }) => {
   const { formatAmount } = useCurrency();
+  const displayIcon = icon || getDefaultCategoryIcon(title, type);
 
   const getAmountStyles = () =>
     type === "income"
@@ -26,22 +27,22 @@ const TransactionInfoCard = ({
   return (
     <div className="group relative flex items-center gap-3.5 mt-1.5 p-3 rounded-xl hover:bg-slate-100/70 dark:hover:bg-[#141414] transition-colors">
       <div className="w-11 h-11 flex items-center justify-center text-lg text-slate-800 dark:text-slate-100 bg-slate-100 dark:bg-[#181818] rounded-xl shrink-0 border border-slate-200/50 dark:border-[#282828] overflow-hidden">
-        {icon ? (
-          typeof icon === "string" ? (
-            icon.startsWith("http") ? (
+        {displayIcon ? (
+          typeof displayIcon === "string" ? (
+            displayIcon.startsWith("http") || displayIcon.includes("cdn.jsdelivr.net") || displayIcon.endsWith(".png") ? (
               <img
-                src={icon}
+                src={displayIcon.startsWith("http") ? displayIcon : `https://${displayIcon.replace(/^\/\//, "")}`}
                 alt="icon"
-                className="w-full h-full object-cover"
+                className="w-6 h-6 object-contain"
               />
             ) : (
-              <span>{icon}</span>
+              <span>{displayIcon}</span>
             )
           ) : (
-            React.createElement(icon)
+            React.createElement(displayIcon)
           )
         ) : (
-          <LuUtensils />
+          <span>{type === "income" ? "💰" : "💳"}</span>
         )}
       </div>
 

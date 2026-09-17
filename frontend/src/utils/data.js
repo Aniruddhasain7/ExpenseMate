@@ -2,6 +2,7 @@ import {
   LuLayoutDashboard,
   LuHandCoins,
   LuWalletMinimal,
+  LuArrowLeftRight,
   LuLogOut,
   LuRepeat,
   LuSlidersHorizontal,
@@ -18,15 +19,9 @@ export const SIDE_MENU_DATA = [
   },
   {
     id: "02",
-    label: "Income",
-    icon: LuWalletMinimal,
-    path: "/income",
-  },
-  {
-    id: "03",
-    label: "Expense",
-    icon: LuHandCoins,
-    path: "/expense",
+    label: "Transactions",
+    icon: LuArrowLeftRight,
+    path: "/transactions",
   },
   {
     id: "04",

@@ -1,17 +1,35 @@
-# node
+# Dependencies
 node_modules/
+*/node_modules/
+
+# Logs
+logs/
+*.log
 npm-debug.log*
-yarn.lock
+yarn-debug.log*
+yarn-error.log*
 
-# env
+# Environment variables
 .env
+.env.*
+*/.env
+*/.env.*
 
-# build
+# Build outputs
 dist/
 build/
+*/dist/
+*/build/
 
-# OS
+# Uploads & Temporary files
+uploads/
+*/uploads/
+*.xlsx
+*/expense_details.xlsx
+*/income_details.xlsx
+
+# Editor & OS
+.vscode/
+.idea/
 .DS_Store
 Thumbs.db
-
-.vscode/
