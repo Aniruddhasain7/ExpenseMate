@@ -13,17 +13,18 @@ const recurringRoutes = require("./routes/recurringRoutes");
 const receiptRoutes = require("./routes/receiptRoutes");
 const budgetRoutes = require("./routes/budgetRoutes");
 const goalRoutes = require("./routes/goalRoutes");
+const copilotRoutes = require("./routes/copilotRoutes");
 
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
   })
 );
 
 app.get("/", (req, res) => {
-  res.send("Expense Tracker API is running 🚀");
+  res.send("ExpenseMate API is running 🚀");
 });
 
 app.use(express.json());
@@ -37,6 +38,7 @@ app.use("/api/v1/recurring", recurringRoutes);
 app.use("/api/v1/receipt", receiptRoutes);
 app.use("/api/v1/budget", budgetRoutes);
 app.use("/api/v1/goals", goalRoutes);
+app.use("/api/v1/copilot", copilotRoutes);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 const PORT = process.env.PORT || 5000;

@@ -20,7 +20,7 @@ const budgetSchema = new mongoose.Schema(
       default: "",
     },
     month: {
-      type: String, // e.g. "2026-08" or "all" for recurring monthly
+      type: String,
       default: "all",
     },
   },

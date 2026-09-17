@@ -3,7 +3,6 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  // Light mode is the default
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("expense_tracker_theme");
     if (savedTheme === "dark" || savedTheme === "light") {

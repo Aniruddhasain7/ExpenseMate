@@ -78,7 +78,6 @@ const Budgets = () => {
   return (
     <DashboardLayout activeMenu="Budgets">
       <div className="my-5 mx-auto space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -98,7 +97,6 @@ const Budgets = () => {
           </button>
         </div>
 
-        {/* Summary Overview Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="card p-5">
             <p className="text-xs text-slate-500 dark:text-gray-400 font-semibold uppercase tracking-wider">
@@ -150,7 +148,6 @@ const Budgets = () => {
           </div>
         </div>
 
-        {/* Budgets List Grid */}
         <div>
           {loading ? (
             <div className="py-16 text-center text-slate-400 dark:text-gray-500 text-sm">
@@ -189,7 +186,6 @@ const Budgets = () => {
           )}
         </div>
 
-        {/* Modal: Add Budget */}
         <Modal
           isOpen={openAddModal}
           onClose={() => setOpenAddModal(false)}
@@ -198,7 +194,6 @@ const Budgets = () => {
           <AddBudgetModal onSave={handleSaveBudget} />
         </Modal>
 
-        {/* Modal: Delete Confirmation */}
         <Modal
           isOpen={openDeleteModal.show}
           onClose={() => setOpenDeleteModal({ show: false, id: null })}

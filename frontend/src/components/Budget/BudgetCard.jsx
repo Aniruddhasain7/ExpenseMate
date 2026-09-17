@@ -72,7 +72,6 @@ const BudgetCard = ({ budget, onDelete }) => {
         </button>
       </div>
 
-      {/* Progress Bar */}
       <div className="space-y-1.5 my-3">
         <div className="flex justify-between text-xs font-semibold">
           <span className="text-slate-600 dark:text-gray-300">
@@ -90,7 +89,6 @@ const BudgetCard = ({ budget, onDelete }) => {
         </div>
       </div>
 
-      {/* Footer Status */}
       <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-[#1e1e1e] text-xs">
         <div>
           {remaining >= 0 ? (

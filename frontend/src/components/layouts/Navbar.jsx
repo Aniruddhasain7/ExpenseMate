@@ -12,7 +12,6 @@ const Navbar = ({ activeMenu }) => {
   const { currency, currencies, setCurrency } = useCurrency();
   const currencyMenuRef = useRef(null);
 
-  // Close currency dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (currencyMenuRef.current && !currencyMenuRef.current.contains(e.target)) {
@@ -41,12 +40,11 @@ const Navbar = ({ activeMenu }) => {
         </button>
 
         <h2 className="text-lg font-medium text-black dark:text-white">
-          Expense Tracker
+          ExpenseMate
         </h2>
       </div>
 
       <div className="flex items-center gap-2.5">
-        {/* Currency Switcher */}
         <div className="relative" ref={currencyMenuRef}>
           <button
             type="button"
@@ -92,7 +90,6 @@ const Navbar = ({ activeMenu }) => {
           )}
         </div>
 
-        {/* Theme Switcher */}
         <button
           onClick={toggleTheme}
           type="button"
@@ -114,7 +111,6 @@ const Navbar = ({ activeMenu }) => {
         </button>
       </div>
 
-      {/* Mobile Side Menu Drawer */}
       {openSideMenu && (
         <div
           className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden transition-opacity"

@@ -24,7 +24,7 @@ const Goals = () => {
     completedCount: 0,
     activeCount: 0,
   });
-  const [filter, setFilter] = useState("all"); // "all", "active", "completed"
+  const [filter, setFilter] = useState("all");
   const [loading, setLoading] = useState(false);
   const [openAddModal, setOpenAddModal] = useState(false);
   const [depositGoal, setDepositGoal] = useState(null);
@@ -101,7 +101,6 @@ const Goals = () => {
   return (
     <DashboardLayout activeMenu="Goals">
       <div className="my-5 mx-auto space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -121,7 +120,6 @@ const Goals = () => {
           </button>
         </div>
 
-        {/* Summary Overview Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="card p-5">
             <p className="text-xs text-slate-500 dark:text-gray-400 font-semibold uppercase tracking-wider">
@@ -167,7 +165,6 @@ const Goals = () => {
           </div>
         </div>
 
-        {/* Filter Tabs */}
         <div className="flex items-center gap-2 border-b border-slate-200/80 dark:border-[#222222] pb-3">
           {["all", "active", "completed"].map((tab) => (
             <button
@@ -185,7 +182,6 @@ const Goals = () => {
           ))}
         </div>
 
-        {/* Goals List Grid */}
         <div>
           {loading ? (
             <div className="py-16 text-center text-slate-400 dark:text-gray-500 text-sm">
@@ -229,7 +225,6 @@ const Goals = () => {
           )}
         </div>
 
-        {/* Modal: Create Goal */}
         <Modal
           isOpen={openAddModal}
           onClose={() => setOpenAddModal(false)}
@@ -238,7 +233,6 @@ const Goals = () => {
           <AddGoalModal onSave={handleCreateGoal} />
         </Modal>
 
-        {/* Modal: Deposit Money */}
         <Modal
           isOpen={!!depositGoal}
           onClose={() => setDepositGoal(null)}
@@ -249,7 +243,6 @@ const Goals = () => {
           )}
         </Modal>
 
-        {/* Modal: Delete Goal */}
         <Modal
           isOpen={openDeleteModal.show}
           onClose={() => setOpenDeleteModal({ show: false, id: null })}

@@ -1,6 +1,14 @@
-# 💸 Expense Tracker
+# 💸 ExpenseMate
 
-A modern full-stack **MERN** web application to track your income and expenses, set monthly category budgets, achieve savings goals, visualize financial analytics, and manage all your finances — in one place.
+A modern full-stack **MERN** web application to track your income and expenses, set monthly category budgets, achieve savings goals, consult an intelligent AI Copilot, and manage all your finances — in one place.
+
+---
+
+<p align="center">
+  <a href="https://expense-tracker-27.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_LIVE_DEMO-VISIT_EXPENSEMATE-22c55e?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0f172a" alt="Live Demo" height="38" />
+  </a>
+</p>
 
 ---
 
@@ -11,7 +19,7 @@ A modern full-stack **MERN** web application to track your income and expenses, 
 - 🧾 **Expense Management** — Track and categorize your expenses effortlessly
 - 🎯 **Category Budgeting** — Set monthly spending limits per category with dynamic progress bars and overspending alerts
 - 🏆 **Savings Goals Tracker** — Create savings goals, deposit funds, and track target deadlines
-- 💡 **Smart Financial Analytics** — Month-over-Month trends, daily burn rate, and smart spending insights
+- 🤖 **AI Copilot** — Intelligent financial intelligence, dynamic financial health score (0-100), one-click automated audits, and personalized interactive conversational advisor
 - 💱 **Multi-Currency Support** — Real-time exchange rate switcher (₹ INR, $ USD, € EUR, £ GBP, AED, CAD, AUD, JPY)
 - 🔄 **Recurring Transactions** — Automate salary, rent, and subscriptions (Daily/Weekly/Monthly/Yearly)
 - 🔍 **Advanced Search & Filters** — Find transactions instantly by text, category, date range, or amount
@@ -97,7 +105,7 @@ Expense Tracker/
     │   ├── hooks/           # Custom React hooks
     │   ├── pages/
     │   │   ├── Auth/        # Login & Signup pages
-    │   │   └── Dashboard/   # Home, Income, Expense, Budgets, Goals, Analytics, Recurring
+    │   │   └── Dashboard/   # Home, Income, Expense, Budgets, Goals, AI Copilot, Recurring
     │   ├── utils/           # API paths & helper functions
     │   ├── App.jsx
     │   └── main.jsx

@@ -27,7 +27,6 @@ export const CurrencyProvider = ({ children }) => {
     }
   });
 
-  // Fetch live exchange rates against INR (base INR)
   useEffect(() => {
     const fetchRates = async () => {
       try {

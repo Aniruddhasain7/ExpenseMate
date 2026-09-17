@@ -1,5 +1,5 @@
 export const BASE_URL =
-  import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
 export const API_PATHS = {
   AUTH: {
@@ -54,5 +54,10 @@ export const API_PATHS = {
     DEPOSIT: (id) => `${BASE_URL}/api/v1/goals/${id}/deposit`,
     UPDATE: (id) => `${BASE_URL}/api/v1/goals/${id}`,
     DELETE: (id) => `${BASE_URL}/api/v1/goals/${id}`,
+  },
+
+  COPILOT: {
+    AUDIT: `${BASE_URL}/api/v1/copilot/audit`,
+    CHAT: `${BASE_URL}/api/v1/copilot/chat`,
   },
 };

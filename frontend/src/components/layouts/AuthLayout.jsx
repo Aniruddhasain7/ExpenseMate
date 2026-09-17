@@ -7,7 +7,7 @@ const AuthLayout = ({ children }) => {
     <div className="flex bg-white dark:bg-[#000000] min-h-screen text-slate-900 dark:text-white transition-colors">
       <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
         <h2 className="text-lg font-medium text-black dark:text-white">
-          Expense Tracker
+          ExpenseMate
         </h2>
         {children}
       </div>
@@ -25,7 +25,7 @@ const AuthLayout = ({ children }) => {
         </div>
         <img
           src={Image1}
-          alt="Expense Tracker Preview"
+          alt="ExpenseMate Preview"
           className="w-64 lg:w-[90%] absolute bottom-10 shadow-lg shadow-blue-400/15 "
         />
       </div>

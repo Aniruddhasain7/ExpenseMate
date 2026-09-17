@@ -28,7 +28,6 @@ const GoalCard = ({ goal, onDeposit, onDelete }) => {
           : "border-slate-200/80 dark:border-[#222222]"
       }`}
     >
-      {/* Top Title & Actions */}
       <div className="flex items-start justify-between gap-3 mb-3">
         <div className="flex items-center gap-3 min-w-0">
           <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-[#161616] border border-slate-200/60 dark:border-[#262626] flex items-center justify-center text-2xl shrink-0 overflow-hidden shadow-xs">
@@ -62,7 +61,6 @@ const GoalCard = ({ goal, onDeposit, onDelete }) => {
         </button>
       </div>
 
-      {/* Amount Progress Stats */}
       <div className="my-3 space-y-1.5">
         <div className="flex items-baseline justify-between text-xs">
           <span className="text-xl font-bold text-slate-900 dark:text-white">
@@ -73,7 +71,6 @@ const GoalCard = ({ goal, onDeposit, onDelete }) => {
           </span>
         </div>
 
-        {/* Dynamic Progress Bar */}
         <div className="w-full h-3 bg-slate-100 dark:bg-[#1a1a1a] rounded-full overflow-hidden p-0.5 border border-slate-200/50 dark:border-[#242424]">
           <div
             className={`h-full rounded-full transition-all duration-700 ${
@@ -97,7 +94,6 @@ const GoalCard = ({ goal, onDeposit, onDelete }) => {
         </div>
       </div>
 
-      {/* Footer Info & Action */}
       <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-[#1e1e1e] gap-2">
         <div className="text-[11px] text-slate-400 dark:text-gray-400 flex items-center gap-1.5 truncate">
           {deadline ? (

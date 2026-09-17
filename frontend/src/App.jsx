@@ -15,7 +15,7 @@ import Expense from "./pages/Dashboard/Expense";
 import Recurring from "./pages/Dashboard/Recurring";
 import Budgets from "./pages/Dashboard/Budgets";
 import Goals from "./pages/Dashboard/Goals";
-import Analytics from "./pages/Dashboard/Analytics";
+import AICopilot from "./pages/Dashboard/AICopilot";
 
 import UserProvider from "./context/UserContext";
 import ThemeProvider, { useTheme } from "./context/ThemeContext";
@@ -76,7 +76,7 @@ const AppContent = () => {
       <Route path="/expense" element={<Expense />} />
       <Route path="/budgets" element={<Budgets />} />
       <Route path="/goals" element={<Goals />} />
-      <Route path="/analytics" element={<Analytics />} />
+      <Route path="/copilot" element={<AICopilot />} />
       <Route path="/recurring" element={<Recurring />} />
     </Routes>
   );

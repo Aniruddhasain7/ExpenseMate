@@ -12,6 +12,7 @@ import {
   LuSlidersHorizontal,
   LuTarget,
   LuTrendingUp,
+  LuSparkles,
 } from "react-icons/lu";
 import { IoMdCard, IoIosAlert } from "react-icons/io";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
@@ -57,7 +58,6 @@ const Home = () => {
   return (
     <DashboardLayout activeMenu="Dashboard">
       <div className="my-2 sm:my-4 mx-auto space-y-6">
-        {/* Overspending Alert Banner (if any budget exceeded) */}
         {budgetSummary?.exceededCount > 0 && (
           <div className="flex items-center justify-between p-4 bg-red-50 dark:bg-[#250c0f] border border-red-200 dark:border-[#42161b] rounded-2xl animate-in fade-in">
             <div className="flex items-center gap-3">
@@ -82,7 +82,6 @@ const Home = () => {
           </div>
         )}
 
-        {/* Top 3 Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           <InfoCard
             icon={<IoMdCard />}
@@ -104,7 +103,6 @@ const Home = () => {
           />
         </div>
 
-        {/* Quick Hub Shortcuts */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Link
             to="/budgets"
@@ -139,23 +137,22 @@ const Home = () => {
           </Link>
 
           <Link
-            to="/analytics"
-            className="flex items-center justify-between p-3.5 rounded-xl bg-white dark:bg-[#000000] border border-gray-200/70 dark:border-[#222222] hover:border-blue-400 dark:hover:border-blue-600 transition-all group"
+            to="/copilot"
+            className="flex items-center justify-between p-3.5 rounded-xl bg-white dark:bg-[#000000] border border-gray-200/70 dark:border-[#222222] hover:border-green-400 dark:hover:border-green-600 transition-all group"
           >
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-50 dark:bg-[#0a1829] text-blue-500 flex items-center justify-center text-lg">
-                <LuTrendingUp />
+              <div className="w-9 h-9 rounded-lg bg-green-50 dark:bg-[#092211] text-green-500 flex items-center justify-center text-lg">
+                <LuSparkles />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-800 dark:text-white">Smart Analytics</p>
-                <p className="text-[11px] text-slate-400 dark:text-gray-400">MoM velocity & trends</p>
+                <p className="text-xs font-bold text-slate-800 dark:text-white">AI Copilot</p>
+                <p className="text-[11px] text-slate-400 dark:text-gray-400">Smart financial advisor & audits</p>
               </div>
             </div>
-            <span className="text-xs text-blue-500 font-semibold group-hover:translate-x-0.5 transition-transform">→</span>
+            <span className="text-xs text-green-500 font-semibold group-hover:translate-x-0.5 transition-transform">→</span>
           </Link>
         </div>
 
-        {/* Charts & Main Sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <RecentTransactions
             transactions={dashboardData?.recentTransactions}

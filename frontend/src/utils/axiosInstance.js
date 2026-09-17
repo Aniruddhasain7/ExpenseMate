@@ -9,7 +9,7 @@ export const setNavigate = (navigate) => {
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  timeout: 90000, // 90 seconds to allow Render cold start
+  timeout: 90000,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",

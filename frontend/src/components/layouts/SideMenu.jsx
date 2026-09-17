@@ -33,11 +33,10 @@ const SideMenu = ({ activeMenu, onItemClick, onClose, isMobile = false }) => {
       }`}
     >
       <div>
-        {/* Mobile Header with App Name and Close Cross Button */}
         {isMobile && (
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-100 dark:border-[#222222]">
             <h2 className="text-lg font-medium text-black dark:text-white">
-              Expense Tracker
+              ExpenseMate
             </h2>
             {onClose && (
               <button

@@ -1,7 +1,6 @@
 const Budget = require("../models/Budget");
 const Expense = require("../models/Expense");
 
-// Set or update a category budget
 exports.setBudget = async (req, res) => {
   const userId = req.user.id;
   const { category, monthlyLimit, icon, month } = req.body;
@@ -39,25 +38,21 @@ exports.setBudget = async (req, res) => {
   }
 };
 
-// Get all budgets with real-time calculated spending for the current month
 exports.getBudgets = async (req, res) => {
   const userId = req.user.id;
 
   try {
     const budgets = await Budget.find({ userId }).sort({ createdAt: -1 });
 
-    // Calculate current month's start & end
     const now = new Date();
     const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999);
 
-    // Aggregate expenses for this user in the current month by category
     const expenses = await Expense.find({
       userId,
       date: { $gte: startOfMonth, $lte: endOfMonth },
     });
 
-    // Sum expenses per category (case-insensitive)
     const spentMap = {};
     expenses.forEach((e) => {
       const catKey = (e.category || "Other").trim().toLowerCase();
@@ -71,7 +66,7 @@ exports.getBudgets = async (req, res) => {
       const remaining = limit - spent;
       const percentage = limit > 0 ? Math.round((spent / limit) * 100) : 0;
 
-      let status = "safe"; // < 75%
+      let status = "safe";
       if (percentage >= 100) {
         status = "exceeded";
       } else if (percentage >= 75) {
@@ -91,7 +86,6 @@ exports.getBudgets = async (req, res) => {
       };
     });
 
-    // Total monthly budget vs total monthly spent
     const totalBudget = enrichedBudgets.reduce((acc, curr) => acc + curr.monthlyLimit, 0);
     const totalSpent = enrichedBudgets.reduce((acc, curr) => acc + curr.spent, 0);
     const exceededCount = enrichedBudgets.filter((b) => b.status === "exceeded").length;
@@ -111,7 +105,6 @@ exports.getBudgets = async (req, res) => {
   }
 };
 
-// Delete a budget
 exports.deleteBudget = async (req, res) => {
   const userId = req.user.id;
   const { id } = req.params;

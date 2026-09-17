@@ -6,7 +6,7 @@ import {
   LuRepeat,
   LuSlidersHorizontal,
   LuTarget,
-  LuTrendingUp,
+  LuSparkles,
 } from "react-icons/lu";
 
 export const SIDE_MENU_DATA = [
@@ -42,9 +42,9 @@ export const SIDE_MENU_DATA = [
   },
   {
     id: "06",
-    label: "Analytics",
-    icon: LuTrendingUp,
-    path: "/analytics",
+    label: "AI Copilot",
+    icon: LuSparkles,
+    path: "/copilot",
   },
   {
     id: "07",
