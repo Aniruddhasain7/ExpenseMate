@@ -12,9 +12,7 @@ const AuthLayout = ({ children }) => {
       <div className="w-full lg:w-[48%] xl:w-[45%] h-full flex flex-col justify-between px-6 sm:px-10 lg:px-12 xl:px-14 py-4 sm:py-6 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         <div className="shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-green-500 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-green-500/25">
-              <LuWallet className="text-lg" />
-            </div>
+            <img src="/logo.png" alt="ExpenseMate Logo" className="w-10 h-10 object-contain drop-shadow-sm" />
             <div>
               <span className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
                 ExpenseMate

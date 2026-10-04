@@ -39,9 +39,12 @@ const Navbar = ({ activeMenu }) => {
           )}
         </button>
 
-        <h2 className="text-lg font-medium text-black dark:text-white">
-          ExpenseMate
-        </h2>
+        <div className="flex items-center gap-2.5">
+          <img src="/logo.png" alt="ExpenseMate Logo" className="w-8 h-8 object-contain" />
+          <h2 className="text-lg font-semibold tracking-tight text-black dark:text-white">
+            ExpenseMate
+          </h2>
+        </div>
       </div>
 
       <div className="flex items-center gap-2.5">

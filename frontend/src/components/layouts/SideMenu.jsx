@@ -35,9 +35,12 @@ const SideMenu = ({ activeMenu, onItemClick, onClose, isMobile = false }) => {
       <div>
         {isMobile && (
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-100 dark:border-[#222222]">
-            <h2 className="text-lg font-medium text-black dark:text-white">
-              ExpenseMate
-            </h2>
+            <div className="flex items-center gap-2.5">
+              <img src="/logo.png" alt="ExpenseMate Logo" className="w-7 h-7 object-contain" />
+              <h2 className="text-lg font-semibold text-black dark:text-white">
+                ExpenseMate
+              </h2>
+            </div>
             {onClose && (
               <button
                 type="button"
