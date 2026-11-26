@@ -7,7 +7,7 @@ Track income and expenses, establish category budgets, hit savings milestones, s
 ---
 
 <p align="center">
-  <a href="https://expense-tracker-27.vercel.app/" target="_blank">
+  <a href="https://expense-mate-27.vercel.app/" target="_blank">
     <img src="https://img.shields.io/badge/🚀_LIVE_DEMO-VISIT_EXPENSEMATE-22c55e?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0f172a" alt="Live Demo" height="38" />
   </a>
 </p>
@@ -47,7 +47,7 @@ Track income and expenses, establish category budgets, hit savings milestones, s
 
 - **Dynamic Health Score (0–100)**: Real-time algorithm assessing cash balance, savings rate, budget adherence, and goal completion.
 - **One-Click Financial Audit**: Delivers customized breakdowns of financial strengths, vulnerabilities, and high-impact action steps tailored to your actual numbers.
-- **Context-Aware Advisory Chat**: Ask complex financial questions (*"How can I cut expenses by 15%?"*, *"Can I afford a $600 vacation next month?"*) while the AI references your active ledger.
+- **Context-Aware Advisory Chat**: Ask complex financial questions (_"How can I cut expenses by 15%?"_, _"Can I afford a $600 vacation next month?"_) while the AI references your active ledger.
 - **Custom API Key Support**: Use the built-in system key or securely bring your own Groq API key directly in the UI.
 - **Rich Markdown Output**: Rendered tables, structured checklists, bullet points, and highlighted recommendation tags using `react-markdown` and `remark-gfm`.
 
@@ -111,20 +111,20 @@ Track income and expenses, establish category budgets, hit savings milestones, s
 
 ### 🎨 Frontend
 
-| Technology               | Version | Purpose                                               |
-| :----------------------- | :------ | :---------------------------------------------------- |
-| **React**                | `v19.2` | Core UI library & declarative component structure     |
-| **Vite**                 | `v7.2`  | Lightning-fast HMR build tool and dev server          |
-| **Tailwind CSS**         | `v4.1`  | Utility-first styling engine with AMOLED dark mode    |
-| **React Router DOM**     | `v7.11` | Client-side routing and authenticated route guards    |
-| **Recharts**             | `v3.6`  | Interactive dual-line cash flow charts & visualizers  |
-| **Tesseract.js**         | `v7.0`  | In-browser client-side OCR receipt parsing            |
-| **Axios**                | `v1.13` | HTTP client configured with JWT interceptors          |
-| **React Hot Toast**      | `v2.6`  | Toast notifications                                   |
-| **React Icons**          | `v5.5`  | Iconography system                                    |
-| **React Markdown + GFM** | `v10.1` | Markdown parser for AI Copilot responses              |
-| **Moment.js**            | `v2.30` | Date manipulation and formatting                      |
-| **Emoji Picker React**   | `v4.16` | Emoji selector for categories                         |
+| Technology               | Version | Purpose                                              |
+| :----------------------- | :------ | :--------------------------------------------------- |
+| **React**                | `v19.2` | Core UI library & declarative component structure    |
+| **Vite**                 | `v7.2`  | Lightning-fast HMR build tool and dev server         |
+| **Tailwind CSS**         | `v4.1`  | Utility-first styling engine with AMOLED dark mode   |
+| **React Router DOM**     | `v7.11` | Client-side routing and authenticated route guards   |
+| **Recharts**             | `v3.6`  | Interactive dual-line cash flow charts & visualizers |
+| **Tesseract.js**         | `v7.0`  | In-browser client-side OCR receipt parsing           |
+| **Axios**                | `v1.13` | HTTP client configured with JWT interceptors         |
+| **React Hot Toast**      | `v2.6`  | Toast notifications                                  |
+| **React Icons**          | `v5.5`  | Iconography system                                   |
+| **React Markdown + GFM** | `v10.1` | Markdown parser for AI Copilot responses             |
+| **Moment.js**            | `v2.30` | Date manipulation and formatting                     |
+| **Emoji Picker React**   | `v4.16` | Emoji selector for categories                        |
 
 ### ⚙️ Backend
 
@@ -299,9 +299,3 @@ Open your browser and navigate to the local Vite URL (typically `http://localhos
 cd frontend
 npm run build
 ```
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
